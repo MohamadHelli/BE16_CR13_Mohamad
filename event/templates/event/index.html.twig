@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+
+    {%for event in events %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ event.image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ event.name }}</h3>
+                            <p class="card-title"><span class="text-info fs-5">Start : </span>{{ event.StartDate|date('F j, Y, g:i a')}}</p>
+                            <p class="card-title"><span class="text-info fs-5">End : </span>{{ event.EndDate|date('F j, Y, g:i a')}}</p>
+                            <p class="card-text"><span class="fs-5">Description : </span>{{ event.description }}</p>
+                            <a href="/details/{{event.id}}" class="btn btn-warning">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+
+    {% endfor %}
+
+{% endblock %}
